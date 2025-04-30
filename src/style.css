@@ -1,0 +1,104 @@
+.object-renderer {
+  background: #333;
+  color: #dcdcdc;
+  word-break: break-all;
+  white-space: break-spaces;
+}
+
+.object-renderer .object-row {
+  display: flex;
+  padding: 10px 5px;
+}
+
+.object-renderer .object-row:last-child {
+  border-bottom: none;
+  padding-bottom: 2px;
+}
+
+.object-renderer .object-row:nth-child(even) {
+  background: rgba(0,0,50,0.1);
+}
+
+.object-renderer .object-row.has-nested-object {
+  margin-top: 5px;
+  display: block;
+}
+
+.object-renderer .object-row.has-nested-object>.key-cell {
+  font-weight: bold;
+}
+
+.object-renderer .key-cell {
+  word-break: keep-all;
+}
+
+.object-renderer .value-cell {
+  margin-left: 10px;
+}
+
+.object-renderer .value-cell-editable {
+  width: 100%;
+  margin-left: 10px;
+}
+
+.object-renderer .value-text {
+  opacity: 0.8;
+  display: inline;
+  font-style: italic;
+}
+
+.object-renderer .edit-field {
+  width: 100%;
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+  padding: 4px;
+  border: 1px solid rgba(150, 150, 150, 0.5);
+  border-radius: 3px;
+  background: #444;
+}
+
+.object-renderer .edit-field .button-ok { color: green; }
+.object-renderer .edit-field .button-esc { color: red; }
+
+
+.object-renderer .editable-value {
+  color: #ccc;
+  cursor: pointer;
+  padding: 5px;
+  margin: 5px;
+  margin-left: 0px;
+  border-radius: 3px;
+  background: #444;
+  font-style: italic;
+}
+
+.object-renderer .editable-value:hover {
+  color: #01adff;
+  background: #333;
+}
+
+.object-renderer .type-label {
+  color: #666;
+  font-size: 85%;
+}
+
+.object-renderer .array-controls button,
+.object-renderer .empty-array button {
+  border: 1px solid rgba(150,150,150, 0.6);
+}
+
+.object-renderer input {
+  color: #ddd;
+  width: 100%;
+  border: none;
+  outline: none;
+  min-width: 120px;
+  background: #444;
+}
+
+.object-renderer button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
