@@ -17,5 +17,6 @@ export interface ObjectRendererProps {
     autoCollapse?: boolean;
     onSelect?: (id: any) => void;
     customRenderers?: CustomRenderer[];
+    className?: string;
 }
-export declare const ObjectRenderer: ({ dataToRender, header, onEdit, customRenderers }: ObjectRendererProps) => import("react/jsx-runtime").JSX.Element;
+export declare const ObjectRenderer: ({ dataToRender, header, onEdit, customRenderers, className }: ObjectRendererProps) => import("react/jsx-runtime").JSX.Element;

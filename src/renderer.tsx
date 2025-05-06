@@ -17,6 +17,7 @@ export interface ObjectRendererProps {
   autoCollapse?: boolean;
   onSelect?: (id: any) => void;
   customRenderers?: CustomRenderer[];
+  className?: string;
 }
 
 const isColor = (str: string) => {
@@ -164,14 +165,14 @@ const renderObject = (
   );
 };
 
-export const ObjectRenderer = ({ dataToRender, header, onEdit, customRenderers }: ObjectRendererProps) => {
+export const ObjectRenderer = ({ dataToRender, header, onEdit, customRenderers, className }: ObjectRendererProps) => {
   const handleFieldEdit = (path: string, newValue: any) => {
     const updatedObj = setValueByPath(JSON.parse(JSON.stringify(dataToRender)), path, newValue);
     onEdit?.({ updated_src: updatedObj });
   };
 
   return (
-    <div className="object-renderer">
+    <div className={className ? "object-renderer " + className : "object-renderer"}>
       <h3>{header}</h3>
       {renderObject(dataToRender, onEdit && handleFieldEdit, 0, '', customRenderers)}
     </div>

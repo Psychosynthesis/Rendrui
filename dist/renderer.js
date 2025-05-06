@@ -83,10 +83,10 @@ const renderObject = (obj, onEdit, layer = 0, pathPrefix = '', customRenderers) 
     }
     return (_jsxs("div", { className: cellClass, children: [_jsx(RenderField, { value: obj, path: pathPrefix, onEdit: onEdit }), _jsxs("span", { className: "type-label", children: [" (", itemType, ")"] })] }));
 };
-export const ObjectRenderer = ({ dataToRender, header, onEdit, customRenderers }) => {
+export const ObjectRenderer = ({ dataToRender, header, onEdit, customRenderers, className }) => {
     const handleFieldEdit = (path, newValue) => {
         const updatedObj = setValueByPath(JSON.parse(JSON.stringify(dataToRender)), path, newValue);
         onEdit?.({ updated_src: updatedObj });
     };
-    return (_jsxs("div", { className: "object-renderer", children: [_jsx("h3", { children: header }), renderObject(dataToRender, onEdit && handleFieldEdit, 0, '', customRenderers)] }));
+    return (_jsxs("div", { className: className ? "object-renderer " + className : "object-renderer", children: [_jsx("h3", { children: header }), renderObject(dataToRender, onEdit && handleFieldEdit, 0, '', customRenderers)] }));
 };
