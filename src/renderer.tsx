@@ -103,25 +103,25 @@ const renderObject = (
     }
   }
   const itemType = Array.isArray(obj) ? 'array' : typeof obj;
+  const isArray = (itemType === 'array');
   const cellClass = onEdit ? 'value-cell-editable' : 'value-cell';
+  const onArrayEdit = () => {
+    if (onEdit) {
+      if (isArray && obj.length === 0) {
+        onEdit(pathPrefix, [{}]);
+      } else {
+        onEdit(pathPrefix, [...obj, {}]);
+      }
+    }
+  };
 
   // console.log('detected type: ', itemType, '\n');
 
-  if (itemType === 'array') {
-    if (obj.length === 0 && onEdit) {
-      return (
-        <div className="empty-array">
-          <span className="type-label"> ({itemType}) </span>
-          <button onClick={() => onEdit(pathPrefix, [{}])}>
-            + Добавить первый элемент
-          </button>
-        </div>
-      );
-    }
+  if (isArray) {
     return (
       <div className="array-block">
-        <span className="type-label">array: [</span>
-        {obj.map((item: any, index: number) => {
+        <span className="type-label">array: </span>
+        [ {obj.map((item: any, index: number) => {
           const currentPath = `${pathPrefix}[${index}]`;
           const paddingLeft = `${layer * 20}px`;
           return (
@@ -129,15 +129,15 @@ const renderObject = (
               {renderObject(item, onEdit, layer + 1, currentPath, customRenderers)}
             </div>
           );
-        })}
+        })} ]
         {onEdit &&
           <div className="array-controls">
             <span className="type-label"> ({itemType}) </span>
-            <button onClick={() => onEdit(pathPrefix, [...obj, {}])}>
-              + Добавить элемент
+            <button onClick={onArrayEdit}>
+              {(obj.length === 0) ? '+ Добавить первый элемент' : 'Добавить элемент' }
             </button>
           </div>
-        }]
+        }
       </div>
     );
   }

@@ -2,7 +2,7 @@
   "name": "rendrui",
   "author": "Nick G.",
   "license": "MIT",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Rendrui",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",

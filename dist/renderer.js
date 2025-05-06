@@ -53,17 +53,25 @@ const renderObject = (obj, onEdit, layer = 0, pathPrefix = '', customRenderers) 
         }
     }
     const itemType = Array.isArray(obj) ? 'array' : typeof obj;
+    const isArray = (itemType === 'array');
     const cellClass = onEdit ? 'value-cell-editable' : 'value-cell';
-    if (itemType === 'array') {
-        if (obj.length === 0 && onEdit) {
-            return (_jsxs("div", { className: "empty-array", children: [_jsxs("span", { className: "type-label", children: [" (", itemType, ") "] }), _jsx("button", { onClick: () => onEdit(pathPrefix, [{}]), children: "+ \u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u043F\u0435\u0440\u0432\u044B\u0439 \u044D\u043B\u0435\u043C\u0435\u043D\u0442" })] }));
+    const onArrayEdit = () => {
+        if (onEdit) {
+            if (isArray && obj.length === 0) {
+                onEdit(pathPrefix, [{}]);
+            }
+            else {
+                onEdit(pathPrefix, [...obj, {}]);
+            }
         }
-        return (_jsxs("div", { className: "array-block", children: [_jsx("span", { className: "type-label", children: "array: [" }), obj.map((item, index) => {
+    };
+    if (isArray) {
+        return (_jsxs("div", { className: "array-block", children: [_jsx("span", { className: "type-label", children: "array: " }), "[ ", obj.map((item, index) => {
                     const currentPath = `${pathPrefix}[${index}]`;
                     const paddingLeft = `${layer * 20}px`;
                     return (_jsx("div", { className: "array-item", style: { paddingLeft }, children: renderObject(item, onEdit, layer + 1, currentPath, customRenderers) }, currentPath));
-                }), onEdit &&
-                    _jsxs("div", { className: "array-controls", children: [_jsxs("span", { className: "type-label", children: [" (", itemType, ") "] }), _jsx("button", { onClick: () => onEdit(pathPrefix, [...obj, {}]), children: "+ \u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u044D\u043B\u0435\u043C\u0435\u043D\u0442" })] }), "]"] }));
+                }), " ]", onEdit &&
+                    _jsxs("div", { className: "array-controls", children: [_jsxs("span", { className: "type-label", children: [" (", itemType, ") "] }), _jsx("button", { onClick: onArrayEdit, children: (obj.length === 0) ? '+ Добавить первый элемент' : 'Добавить элемент' })] })] }));
     }
     if (itemType === 'object' && obj !== null) {
         return Object.keys(obj).map((key) => {
