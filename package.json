@@ -2,7 +2,7 @@
   "name": "rendrui",
   "author": "Nick G.",
   "license": "MIT",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Rendrui",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -31,6 +31,8 @@
     "url": "git+https://github.com/Psychosynthesis/Rendrui.git"
   },
   "keywords": [
+    "frontend",
+    "react-component",
     "render",
     "object-renderer",
     "ui"
