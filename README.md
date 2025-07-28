@@ -1,5 +1,7 @@
 # Rendrui
-   A simple component for rendering JS objects in React. Supports editing and custom rendering.
+[![npm version](https://img.shields.io/npm/v/rendrui)](https://www.npmjs.org/package/rendrui)
+
+  A simple component for rendering JS objects in React. Supports editing and custom rendering.
 
 # Install
   ```
@@ -8,14 +10,14 @@
 
 # Usage
   The simplest option is if you just need to visualize data
-  
+
   ```JavaScript
   import { ObjectRenderer } from 'rendrui';
 
-  cons anySerializableData = {
+  const anySerializableData = {
     arr: [],
     obj: {},
-    //...
+    // ... any data
   };
 
   <ObjectRenderer
