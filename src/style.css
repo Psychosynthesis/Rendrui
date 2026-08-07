@@ -110,3 +110,8 @@
   border: none;
   cursor: pointer;
 }
+
+.object-renderer .object-row,
+.object-renderer .array-item {
+  content-visibility: auto;
+}

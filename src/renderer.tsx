@@ -301,3 +301,5 @@ export const ObjectRenderer = ({
     </div>
   );
 };
+
+export default ObjectRenderer

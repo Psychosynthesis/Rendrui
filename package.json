@@ -2,7 +2,7 @@
   "name": "rendrui",
   "author": "Nick G.",
   "license": "MIT",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Rendrui",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -37,7 +37,7 @@
     "object-renderer",
     "ui"
   ],
-  "dependencies": {
+  "peerDependencies": {
     "clsx": "^2.1.0",
     "react": ">=18.0.0",
     "react-dom": ">=18.0.0"
@@ -46,6 +46,9 @@
     "@types/node": "^20.4.7",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
+    "clsx": "^2.1.0",
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0",
     "gh-pages": "^6.1.1",
     "typescript": "^5.8.2"
   }
