@@ -14,9 +14,9 @@ export interface ObjectRendererProps {
     onEdit?: (editData: {
         updated_src: any;
     }) => void;
-    autoCollapse?: boolean;
     onSelect?: (id: any) => void;
     customRenderers?: CustomRenderer[];
     className?: string;
+    foldLevel?: number;
 }
-export declare const ObjectRenderer: ({ dataToRender, header, onEdit, customRenderers, className }: ObjectRendererProps) => import("react/jsx-runtime").JSX.Element;
+export declare const ObjectRenderer: ({ dataToRender, header, onEdit, customRenderers, className, foldLevel }: ObjectRendererProps) => import("react/jsx-runtime").JSX.Element;

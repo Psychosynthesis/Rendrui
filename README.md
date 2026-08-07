@@ -23,6 +23,7 @@
   <ObjectRenderer
     dataToRender={anySerializableData}
     className="any-additional-class"
+    foldLevel="3"
   />
   ```
 

@@ -28,6 +28,15 @@
   font-weight: bold;
 }
 
+.object-renderer .foldable-value {
+  display: block;
+}
+
+.object-renderer .fold-toggle {
+  color: #888;
+  padding: 0 5px 0 0;
+}
+
 .object-renderer .key-cell {
   word-break: keep-all;
 }
